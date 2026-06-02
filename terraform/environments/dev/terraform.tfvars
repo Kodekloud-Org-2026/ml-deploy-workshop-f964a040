@@ -1,21 +1,9 @@
-# Dev environment composition variables.
-# model_version is the value validate.py inspects for mutable-reference rejection.
-# Demo step E (fail-closed): change this to "latest" and watch the pipeline halt.
-
 aws_region    = "us-east-1"
 model_version = "1.0.0"
-
-# These five values are populated per session from the bootstrap stack's
-# outputs (/tmp/nfcu-bootstrap-outputs.json). See the pre-req setup steps in
-# LAB_GUIDE.md / README.md for the populate-from-bootstrap snippet.
-#
-# image_uri / image_digest are overridden by the containerize job via TF_VAR_*
-# env vars — leave them as REPLACE_ME here.
 image_uri             = "REPLACE_ME_FROM_CONTAINERIZE_JOB"
 image_digest          = "REPLACE_ME_FROM_CONTAINERIZE_JOB"
-model_artifact_s3_uri = "s3://REPLACE_BUCKET/fraud-detector/model.tar.gz"
-model_artifact_bucket = "REPLACE_BUCKET"
-vpc_id                = "REPLACE_FROM_BOOTSTRAP_OUTPUT"
-private_subnet_ids    = ["REPLACE_FROM_BOOTSTRAP_OUTPUT_0", "REPLACE_FROM_BOOTSTRAP_OUTPUT_1"]
-kms_key_arn           = "REPLACE_FROM_BOOTSTRAP_OUTPUT"
-# trigger: lab 1 - pass
+model_artifact_s3_uri = "s3://nfcu-s1-models-kodekloud-org-2026-f964a040/fraud-detector/model.tar.gz"
+model_artifact_bucket = "nfcu-s1-models-kodekloud-org-2026-f964a040"
+vpc_id                = "vpc-0debb4ea11f6e8ded"
+private_subnet_ids    = ["subnet-0fd175a85f56b3cd8","subnet-0819e9618fcda0c28","subnet-0ae4bf9dada12a0bd"]
+kms_key_arn           = "arn:aws:kms:us-east-1:381492154434:key/1d4c6702-c13c-4e42-9eff-0e576208665b"
